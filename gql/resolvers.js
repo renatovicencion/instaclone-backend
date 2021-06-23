@@ -9,6 +9,8 @@ const resolvers = {
         // User
         register: (_, { input }) => userController.register(input),
         login: (_, { input }) => userController.login(input),
+        updateAvatar: (_, { file }, context) => userController.updateAvatar(file, context),
+        deleteAvatar: (_, {}, context) => userController.deleteAvatar(context),
     }
 };
 
