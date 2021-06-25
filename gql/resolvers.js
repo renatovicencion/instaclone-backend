@@ -11,6 +11,7 @@ const resolvers = {
         login: (_, { input }) => userController.login(input),
         updateAvatar: (_, { file }, context) => userController.updateAvatar(file, context),
         deleteAvatar: (_, {}, context) => userController.deleteAvatar(context),
+        updateUser: (_, { input }, context) => userController.updateUser(input, context),
     }
 };
 
