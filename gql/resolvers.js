@@ -1,6 +1,7 @@
 const userController = require("./../controllers/user");
 const followController = require("./../controllers/follow");
 const publicationController = require("./../controllers/publication");
+const commentController = require("./../controllers/comment");
 
 const resolvers = {
     Query: {
@@ -15,6 +16,9 @@ const resolvers = {
 
         // Publication
         getPublications: (_, { username }) => publicationController.getPublications(username),
+
+        // Comment
+        getComments: (_, { idPublication }) => commentController.getComments(idPublication),
     },
     Mutation: {
         // User
@@ -30,6 +34,9 @@ const resolvers = {
 
         // Publicaton
         publish: (_, { file }, context) => publicationController.publish(file, context),
+
+        // Comment
+        addComment: (_, { input }, context) => commentController.addComment(input, context),
     }
 };
 
