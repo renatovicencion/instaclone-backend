@@ -42,6 +42,14 @@ const typeDefs = gql`
         createdAt: String
     }
 
+    type FeedPublication {
+        id: ID,
+        idUser: User
+        file: String
+        typeFile: String
+        createdAt: String
+    }
+
     input UserInput {
         name: String!
         username: String!
@@ -77,9 +85,11 @@ const typeDefs = gql`
         isFollow(username: String!): Boolean
         getFollowers(username: String!): [User]
         getFolloweds(username: String!): [User]
+        getNotFolloweds: [User]
 
         # Publication
         getPublications(username: String!): [Publication]
+        getPublicationsFolloweds: [FeedPublication]
 
         # Comment
         getComments(idPublication: ID!): [Comment]
