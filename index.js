@@ -44,7 +44,7 @@ function server() {
         }
     });
 
-    serverApollo.listen().then((response) => {
+    serverApollo.listen({ port: process.env.PORT || 4000 }).then((response) => {
         const { url } = response;
         console.log("###################################");
         console.log(`Servidor corriendo en la url ${url}`);
