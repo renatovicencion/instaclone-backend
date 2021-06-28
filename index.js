@@ -24,7 +24,8 @@ function server() {
         typeDefs,
         resolvers,
         cors: {
-            origin: 'https://rvn-instaclone-backend.herokuapp.com/',
+            origin: 'https://rvn-instaclone-backend.herokuapp.com/',	    // <- allow request from all domains
+            credentials: true
         }, 
         context: ({ req }) => {
             const token = req.headers.authorization;
