@@ -23,10 +23,7 @@ function server() {
     const serverApollo = new ApolloServer({
         typeDefs,
         resolvers,
-        cors: {
-            origin: '*',	    // <- allow request from all domains
-            credentials: true
-        }, 
+        cors: false,
         context: ({ req }) => {
             const token = req.headers.authorization;
 
