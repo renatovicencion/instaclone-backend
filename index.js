@@ -23,7 +23,9 @@ function server() {
     const serverApollo = new ApolloServer({
         typeDefs,
         resolvers,
-        cors: false,
+        cors: {
+            origin: 'https://rvn-instaclone-backend.herokuapp.com/',
+        }, 
         context: ({ req }) => {
             const token = req.headers.authorization;
 
